@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "نادي الابتكار وريادة الأعمال"
+description = "موقع تعريفي عربي لنادي الابتكار وريادة الأعمال، يعرض الهوية، الرؤية، الإنجازات، اللجان، البرامج القادمة، تحدي روّاد، ووسائل التواصل."
+version = "1.0.0"
+id = "artifacts/innovation-club"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19986
+
+[services.development]
+run = "pnpm --filter @workspace/innovation-club run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/innovation-club", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/innovation-club/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19986"
+BASE_PATH = "/"

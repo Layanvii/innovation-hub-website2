@@ -1,0 +1,53 @@
+{
+  "name": "@workspace/innovation-club-desktop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Windows desktop wrapper for the Innovation and Entrepreneurship Club website",
+  "main": "src/main.cjs",
+  "scripts": {
+    "dev": "concurrently -k \"pnpm run web:dev\" \"wait-on http://127.0.0.1:19986 && cross-env ELECTRON_START_URL=http://127.0.0.1:19986 electron .\"",
+    "web:dev": "cross-env PORT=19986 BASE_PATH=/ pnpm --filter @workspace/innovation-club run dev",
+    "build:web": "cross-env PORT=19986 BASE_PATH=/ pnpm --filter @workspace/innovation-club run build",
+    "build": "pnpm run build:web && node scripts/build.mjs",
+    "start": "electron .",
+    "dist:win": "pnpm run build && electron-builder --win --x64"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "electron": "^38.1.0",
+    "electron-builder": "^26.0.12",
+    "wait-on": "^8.0.4"
+  },
+  "build": {
+    "appId": "sa.innovationclub.desktop",
+    "productName": "Innovation Club",
+    "asar": true,
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "src/**/*",
+      "web/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "../../attached_assets/1_1786717861361.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Innovation Club"
+    }
+  }
+}
