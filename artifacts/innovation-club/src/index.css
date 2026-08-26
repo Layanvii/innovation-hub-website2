@@ -1124,17 +1124,15 @@
   .section-wrap {
     width: min(100% - 28px, 580px);
   }
-  .hero-nav .section-wrap {
+  .hero-nav-row {
     width: min(100% - 22px, 580px);
-  }
-  .hero-nav .section-wrap {
     height: 68px;
   }
   .hero {
     min-height: auto;
     padding-bottom: 80px;
   }
-  .hero .section-wrap {
+  .hero-content {
     min-height: 620px;
     gap: 38px;
     padding-block: 48px 24px;

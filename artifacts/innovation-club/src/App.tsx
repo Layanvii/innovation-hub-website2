@@ -267,7 +267,7 @@ function Home() {
       {/* Hero and sticky navigation */}
       <section className="hero" id="top">
         <header className="hero-nav sticky top-0 z-40">
-          <div className="section-wrap flex h-[78px] items-center justify-between gap-6">
+          <div className="hero-nav-row section-wrap flex h-[78px] items-center justify-between gap-6">
             <button
               type="button"
               className="flex items-center gap-3 text-right"
@@ -330,7 +330,7 @@ function Home() {
               className="mobile-menu px-5 pb-5 lg:hidden"
               aria-label="التنقل على الجوال"
             >
-              <div className="section-wrap flex flex-col gap-1">
+              <div className="mobile-menu-inner section-wrap flex flex-col gap-1">
                 {navItems.map((item) => (
                   <button
                     type="button"
@@ -352,7 +352,7 @@ function Home() {
           )}
         </header>
 
-        <div className="section-wrap relative grid min-h-[680px] items-center gap-14 py-20 lg:grid-cols-[1.05fr_.95fr] lg:gap-20">
+        <div className="hero-content section-wrap relative grid min-h-[680px] items-center gap-14 py-20 lg:grid-cols-[1.05fr_.95fr] lg:gap-20">
           <div className="reveal order-2 lg:order-1">
             <div className="eyebrow mb-7">مساحة تُحرّك الأفكار</div>
             <h1 className="hero-title text-balance">
