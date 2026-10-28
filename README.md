@@ -1,44 +1,77 @@
 # Innovation Hub
 
-موقع نادي الابتكار وريادة الأعمال، مع نسخة سطح مكتب لنظام Windows.
+A web platform for a university innovation and entrepreneurship club, with a Windows desktop wrapper. The repository is organized as a workspace containing the main React/Vite site, an API server, shared libraries, and an Electron desktop application.
 
-## خريطة المشروع
+## Highlights
 
-- `artifacts/innovation-club/` — موقع React/Vite الرئيسي.
-- `artifacts/mockup-sandbox/` — مساحة تجارب للنماذج والواجهات.
-- `artifacts/api-server/` — خادم API باستخدام Express.
-- `desktop/innovation-club/` — غلاف Electron لتطبيق Windows.
-- `lib/api-client-react/` — عميل API المخصص لـReact.
-- `lib/api-spec/` — ملف OpenAPI وتوليد تعريفات API.
-- `lib/api-zod/` — مخططات Zod وتعريفات الأنواع.
-- `lib/db/` — مخطط قاعدة البيانات وإعدادات Drizzle.
-- `scripts/` — سكربتات مساعدة للمشروع.
-- `attached_assets/` — الصور والملفات المستخدمة في الواجهة.
-- `screenshots/` — لقطات مرجعية للتصميم.
+- React + Vite web application
+- Express API server
+- Electron desktop wrapper for Windows
+- Shared API specification and type/schema libraries
+- Database schema and Drizzle configuration
+- A mockup sandbox for experimenting with UI ideas
 
-## التشغيل المحلي
+## Repository layout
 
-من جذر المشروع:
+| Path | Purpose |
+|---|---|
+| artifacts/innovation-club/ | Main React/Vite website |
+| artifacts/mockup-sandbox/ | UI and prototype experiments |
+| artifacts/api-server/ | Express API server |
+| desktop/innovation-club/ | Electron desktop application |
+| lib/api-client-react/ | React API client |
+| lib/api-spec/ | OpenAPI specification and generated API definitions |
+| lib/api-zod/ | Zod schemas and type definitions |
+| lib/db/ | Database schema and Drizzle configuration |
+| screenshots/ | Reference screenshots |
 
-```bash
-pnpm install
-pnpm --filter @workspace/innovation-club dev
-```
+## Tech stack
 
-يفتح الموقع عادة على `http://localhost:5173`.
+**Frontend:** React, Vite  
+**Backend:** Node.js, Express  
+**Desktop:** Electron  
+**API & validation:** OpenAPI, Zod  
+**Database tooling:** Drizzle  
+**Package management:** pnpm workspace
 
-## التحقق والبناء
+## Getting started
 
-```bash
-pnpm typecheck
-pnpm --filter @workspace/innovation-club build
-```
+### Prerequisites
 
-## تطبيق Windows
+Install Node.js and pnpm. Use the versions supported by the project configuration.
 
-```bash
-pnpm --filter @workspace/innovation-club-desktop dev
-pnpm --filter @workspace/innovation-club-desktop dist:win
-```
+### Install dependencies
 
-تتم مشاركة واجهة الموقع بين نسخة المتصفح وتطبيق Windows، لذلك تعديلات الواجهة الأساسية تكون داخل `artifacts/innovation-club/src/`.
+From the repository root:
+
+    pnpm install
+
+### Run the website
+
+    pnpm --filter @workspace/innovation-club dev
+
+The development server usually runs at http://localhost:5173; check the terminal output for the actual URL.
+
+### Type-check and build
+
+    pnpm typecheck
+    pnpm --filter @workspace/innovation-club build
+
+### Run or package the Windows desktop app
+
+    pnpm --filter @workspace/innovation-club-desktop dev
+    pnpm --filter @workspace/innovation-club-desktop dist:win
+
+## Development notes
+
+- The main shared website UI lives in artifacts/innovation-club/src/.
+- Keep secrets and local environment files out of version control.
+- Before submitting changes, run the relevant type-check/build commands and describe any required environment variables.
+
+## Project status
+
+This README documents the repository structure and available scripts. Add screenshots, a live demo link, deployment details, and a concise list of implemented user-facing features when those are ready to share.
+
+## Author
+
+**Layan** — [GitHub profile](https://github.com/Layanvii)
